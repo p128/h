@@ -6,7 +6,7 @@ int main (int argc, char *argv[])
 {
 int i, nthreads, tid;
 float a[N], b[N], c[N], d[N];
-/* Some initializations */
+
 for (i=0; i<N; i++) {
 a[i] = i * 1.5;
 b[i] = i + 22.35;
@@ -41,7 +41,7 @@ d[i] = a[i] - b[i];
 printf("Thread %d: d[%d]= %f\n",tid,i,d[i]);
 }
 }
-} /* end of sections */
+} 
 printf("Thread %d done.\n",tid);
-} /* end of parallel section */
+} 
 }
