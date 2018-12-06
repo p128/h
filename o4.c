@@ -5,7 +5,6 @@
 #define MINUS_INFINITY -9999
 #define MAXIMUM_VALUE 65535
 
-/* Main Program */
 
 main()
 {
@@ -19,10 +18,9 @@ if (Noofelements <= 0) {
 printf("The array elements cannot be stored\n");
 exit(1);
 }
-/* Dynamic Memory Allocation */
+
 array = (int *) malloc(sizeof(int) * Noofelements);
 
-/* Allocating Random Number To Array Elements */
 
 srand(MAXIMUM_VALUE);
 for (i = 0; i < Noofelements; i++)
@@ -32,7 +30,6 @@ if (Noofelements == 1) {
 printf("The Largest Element In The Array Is %d", array[0]);
 exit(1);
 }
-/* Initializing The Lock */
 
 printf("The locking is going to start\n");
 
@@ -52,11 +49,11 @@ omp_unset_lock(&MAXLOCK);
 }
 }
 
-/* Destroying The Lock */
+
 
 omp_destroy_lock(&MAXLOCK);
 
-/* Serial Calculation */
+
 current_value = array[0];
 for (i = 1; i < Noofelements; i++)
 if (array[i] > current_value)
@@ -67,7 +64,7 @@ printf("The Array Elements Are \n");
 for (i = 0; i < Noofelements; i++)
 printf("\t%d", array[i]);
 
-/* Checking For Output Validity */
+
 
 if (current_value == cur_max)
 printf("\nThe Max Value Is Same For Serial And Using Parallel OpenMP Directive\n");
@@ -76,7 +73,7 @@ printf("\nThe Max Value Is Not Same In Serial And Using Parallel OpenMP Directiv
 exit(1);
 }
 
-/* Freeing Allocated Memory */
+
 
 free(array);
 
