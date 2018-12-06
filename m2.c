@@ -17,7 +17,6 @@ int main (int argc, char *argv[])
 
    printf ("process id:%d received message %s\n", rank, msg);
 
-   // Wait for every process to reach this code
 
 
    MPI_Barrier (MPI_COMM_WORLD);
