@@ -16,7 +16,6 @@ int i,j,threads;
 long long *x;
 long long n=12;
 
-/* Set number of threads equal to argv[1] if present */
 if (argc > 1)
 {
 threads = atoi(argv[1]);
@@ -32,7 +31,7 @@ printf("%d threads\n",omp_get_max_threads());
 x = (long long *) malloc(n * sizeof(long));
 for (i=0;i<n;i++) x[i]=factorial(i);
 j=0;
-/* Is the output the same if the following line is commented out? */
+
 #pragma omp parallel for firstprivate(x,j)
 for (i=1; i<n; i++)
 {
