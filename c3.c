@@ -7,10 +7,9 @@ __global__ void hello()
 }
 int main(int argc,char **argv)
 {
-    // launch the kernel
+    
     hello<<<NUM_BLOCKS, BLOCK_WIDTH>>>();
 
-    // force the printf()s to flush
     cudaDeviceSynchronize();
   printf("That's all!\n");
    return 0;
